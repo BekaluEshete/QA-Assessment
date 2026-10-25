@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Put } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
-import {  ProductsService } from './products.service';
+import { ProductsService } from './products.service';
 import { Product } from './entities/product.entity';
 import { ApiResponse } from 'src/constants';
 

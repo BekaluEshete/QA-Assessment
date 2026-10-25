@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UsersModule } from './users/users.module';
 import { ProductsModule } from './products/products.module';
 import { TransactionsModule } from './transactions/transactions.module';
+import { HealthModule } from './health/health.module';
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
 
@@ -21,12 +22,13 @@ import { AppController } from './app.controller';
       database: process.env.DB_DATABASE,
       autoLoadEntities: true,
       synchronize: false,
-      migrations: ['dist/migrations/*.js'],
+      migrations: ['dist/src/migrations/*.js'], // Fix BUG-007: correct compiled path
       migrationsRun: true,
     }),
     UsersModule,
     ProductsModule,
     TransactionsModule,
+    HealthModule,
   ],
   providers: [AppService],
   controllers: [AppController],
